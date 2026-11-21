@@ -85,3 +85,29 @@ char	*get_next_line(int fd)
 	}
 	return (extract_line(&stash));
 }
+
+/*
+#include <fcntl.h>
+#include <stdio.h>
+
+int main(int c, char **v)
+{
+	int fd;
+	char *line;
+
+	if (c != 2)
+		return (printf("Usage: %s filename\n", v[0]), 1);
+	fd = open(v[1], O_RDONLY);
+	if (fd == -1)
+		return (perror(v[1]), 1);
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (0);
+}
+*/
